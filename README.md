@@ -4,12 +4,12 @@ Ce projet a pour objectif de prédire l'humidité relative à partir de données
 
 <p align="center">
   <!-- Logo du haut (centré) -->
-  <img src="Img/ippLogo.png" alt="Logo Haut" width="25%">
+  <img src="img/ippLogo.png" alt="Logo Haut" width="25%">
   <br><br>
   <!-- Logos du bas (gauche et droite) -->
-  <img src="Img/S5-45_C3S_logo.png" alt="Logo Gauche" width="20%" style="margin-right: 20px;">
+  <img src="img/S5-45_C3S_logo.png" alt="Logo Gauche" width="20%" style="margin-right: 20px;">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="Img/Copernicus vecto def  Europe's eyes on Earth.png" alt="Logo Droite" width="20%" style="margin-left: 20px;">
+  <img src="img/Copernicus vecto def  Europe's eyes on Earth.png" alt="Logo Droite" width="20%" style="margin-left: 20px;">
 </p>
 
 
