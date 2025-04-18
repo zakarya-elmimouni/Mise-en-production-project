@@ -1,17 +1,32 @@
-.PHONY: data train test clean
+# Variables
+PYTHON=python
+PIP=pip
 
-data:
-	python src/data/make_dataset.py
+# Nom du script principal
+MAIN=main.py
 
-train:
-	python src/models/train_model.py
+# Tâche par défaut
+all: run
 
-predict:
-	python src/models/predict_model.py
+# Installer les dépendances
+install:
+	$(PIP) install -r requirements.txt
 
-visualize:
-	python src/visualization/visualize.py
+# Exécuter le pipeline principal
+run:
+	$(PYTHON) $(MAIN)
 
+# Nettoyer les fichiers temporaires
 clean:
-	rm -rf models/*
-	rm -rf reports/*
+	find . -type f -name '*.pyc' -delete
+	find . -type d -name '__pycache__' -exec rm -r {} +
+
+# Formater le code
+format:
+	black src/ main.py
+
+# Vérifier la qualité du code
+lint:
+	flake8 src/ main.py
+
+.PHONY: all install run clean format lint
