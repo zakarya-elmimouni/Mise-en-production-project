@@ -11,7 +11,7 @@ class ModelTrainer:
         self.target_col = target_col
         self.features = [
             'latitude', 'longitude', 'temperature', 'divergence',
-            'u_component_wind', 'v_component_wind', 'relative_humidity', 'wind_speed', 'valid_time'
+            'u_component_wind', 'v_component_wind', 'relative_humidity', 'valid_time'
         ]
 
     def build_pipeline(self):

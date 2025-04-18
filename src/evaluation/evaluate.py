@@ -7,6 +7,6 @@ class ModelEvaluator:
         self.y_pred = y_pred
 
     def evaluate(self):
-        rmse = mean_squared_error(self.y_true, self.y_pred, squared=False)
+        rmse = mean_squared_error(self.y_true, self.y_pred)
         r2 = r2_score(self.y_true, self.y_pred)
         return {"rmse": rmse, "r2": r2}
