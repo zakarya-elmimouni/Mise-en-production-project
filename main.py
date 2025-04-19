@@ -3,6 +3,7 @@ from src.data.load_data import S3DataLoader
 from src.models.train_model import ModelTrainer
 from src.models.predict_model import ModelPredictor
 from src.evaluation.evaluate import ModelEvaluator
+from src.models.train_model import ModelTuner
 
 
 # Fonction pour obtenir les arguments depuis le terminal
@@ -44,3 +45,8 @@ print("Évaluation du modèle...")
 evaluator = ModelEvaluator(test_df[args.target_col], predictions)
 metrics = evaluator.evaluate()
 print(metrics)
+
+
+tuner = ModelTuner(target_col=TARGET_COL)
+best_model = tuner.fine_tune(train_df)  # Tu peux passer un param_grid personnalisé ici
+print("Meilleurs paramètres :", tuner.best_params_)
