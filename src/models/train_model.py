@@ -11,7 +11,7 @@ class ModelTrainer:
         self.target_col = target_col
         self.features = [
             'latitude', 'longitude', 'temperature', 'divergence',
-            'u_component_wind', 'v_component_wind', 'relative_humidity', 'valid_time'
+            'u_component_wind', 'v_component_wind', 'valid_time'
         ]
 
     def build_pipeline(self):
@@ -23,12 +23,12 @@ class ModelTrainer:
         return make_pipeline(
             preprocessor,
             SimpleImputer(),
-            RandomForestRegressor(random_state=42)
+            RandomForestRegressor(n_estimators=10, random_state=42)
         )
 
-    def train(self, df: pd.DataFrame):
+    '''def train(self, df: pd.DataFrame):
         X = df[self.features]
         y = df[self.target_col]
         pipeline = self.build_pipeline()
         pipeline.fit(X, y)
-        return pipeline
+        return pipeline'''
