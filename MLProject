@@ -1,0 +1,9 @@
+name: humidity-prediction
+
+entry_points:
+  main:
+    parameters:
+      remote_server_uri: {type: str}
+      experiment_name: {type: str}
+    command: PYTHONPATH=. python src/train.py --remote_server_uri {remote_server_uri} --experiment_name {experiment_name}
+
