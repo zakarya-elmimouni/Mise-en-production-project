@@ -4,7 +4,12 @@ import argparse
 import mlflow
 import mlflow.sklearn
 from src.data.load_data import S3DataLoader
-from src.models.train_model import ModelTuner
+from src.models.train_model import ModelTrainer
+import sys
+import os
+
+# Ajoute le dossier racine du projet dans le PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 BUCKET = "arazig"
 TRAIN_FILE = "projet-mise-en-prod/data/train.csv"
@@ -25,7 +30,7 @@ def main(remote_server_uri: str, experiment_name: str):
         train_df = loader.load_csv(TRAIN_FILE)
 
         # Entraînement avec tuning
-        tuner = ModelTuner(TARGET_COL)
+        tuner = ModelTrainer(TARGET_COL)
         model = tuner.fine_tune(train_df)
 
         # Log du modèle et hyperparams

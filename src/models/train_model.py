@@ -14,6 +14,7 @@ class ModelTrainer:
             'latitude', 'longitude', 'temperature', 'divergence',
             'u_component_wind', 'v_component_wind', 'relative_humidity', 'valid_time'
         ]
+        self.pipeline = self.build_pipeline() 
 
     def build_pipeline(self):
         preprocessor = make_column_transformer(
@@ -34,7 +35,7 @@ class ModelTrainer:
         pipeline.fit(X, y)
         return pipeline
 
-    def fine_tune(self, df: pd.DataFrame, param_grid: dict = None):
+    def fine_tune(self, df: pd.DataFrame, param_grid: dict = None, cv: int = 2):
         if param_grid is None:
             param_grid = {
                 "randomforestregressor__n_estimators": [20, 50],
@@ -45,10 +46,12 @@ class ModelTrainer:
         X = df[self.features]
         y = df[self.target_col]
 
+        self.pipeline = self.build_pipeline()
+
         grid_search = GridSearchCV(
             self.pipeline,
             param_grid,
-            cv=self.cv,
+            cv=cv,
             scoring='neg_root_mean_squared_error',
             n_jobs=-1,
             verbose=2
