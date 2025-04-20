@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: humidity-api
+  labels:
+    app: humidity-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: humidity-api
+  template:
+    metadata:
+      labels:
+        app: humidity-api
+    spec:
+      containers:
+        - name: humidity-container
+          image: ahmedkhairaldin/humidity_prediction
+          ports:
+            - containerPort: 8000
