@@ -24,7 +24,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ahmedkhairaldin/humidity_prediction:latest
+          images: ahmedkhairaldin/humidity_prediction
 
       -
         name: Login to Docker Hub
