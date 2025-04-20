@@ -9,11 +9,43 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+import os
+import sys
+import logging
+
+# Crée le dossier log s'il n'existe pas
+os.makedirs("logs", exist_ok=True)
+
+# Configure le logger
+logging.basicConfig(
+    filename="logs/train.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+
+# Redirige stdout et stderr vers le fichier log
+class StreamToLogger:
+    def __init__(self, logger_func):
+        self.logger_func = logger_func
+
+    def write(self, message):
+        message = message.strip()
+        if message:
+            self.logger_func(message)
+
+    def flush(self):
+        pass  # Nécessaire pour respecter l'interface
+
+sys.stdout = StreamToLogger(logging.info)
+sys.stderr = StreamToLogger(logging.error)
+
 
 def main(remote_server_uri, experiment_name, run_name, cv, bucket, train_path, test_path, target_col):
     # Setup MLflow
     mlflow.set_tracking_uri(remote_server_uri)
     mlflow.set_experiment(experiment_name)
+    
+    print("✅ Modèle entraîné et loggé avec succès.")
 
     with mlflow.start_run(run_name=run_name):
         # Log des paramètres
