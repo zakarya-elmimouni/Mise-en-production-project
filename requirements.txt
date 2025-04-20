@@ -7,3 +7,4 @@ s3fs==2025.3.2
 scikit_learn==1.6.1
 setuptools==75.8.2
 pytest==8.3.5
+streamlit==1.44.1
