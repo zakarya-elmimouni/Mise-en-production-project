@@ -3,3 +3,5 @@ data/train.csv
 __pycache__/
 *.py[cod]
 venv/
+*.env*
+.env
