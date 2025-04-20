@@ -1,6 +1,7 @@
 import pandas as pd
 from src.data.load_data import S3DataLoader
 
+
 def test_fake_load_local_csv(tmp_path):
     # Simule un fichier CSV local
     csv_content = "feature1,feature2,target\n1,2,3\n4,5,6"
