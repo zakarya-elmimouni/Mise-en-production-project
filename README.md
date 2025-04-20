@@ -48,15 +48,63 @@ Ce projet a pour objectif de prédire l'humidité relative à partir de données
 
 ## Getting started
 
-### Install
+Etapes pour l'utilisation de notre projet
+#### Clone du dépôt
+   ```bash
+   git clone https://github.com/AhmedProj/PrimePredict.git
+   cd Mise-en-production-project
+   ```
 
-To run a the code and test the notebooks you need to install the dependencies listed
-in `requirements.txt`. You can do this with the
-following command-line:
+### Installation de packages
+
+Pour exécuter le code et tester le notebook de démo, vous devez installer les dépendances listées
+dans `requirements.txt`. Vous pouvez le faire avec la ligne de commande suivante :
 
 ```bash
 pip install -U -r requirements.txt
 ```
+### Procédure d'entrainement, cross validation et fine Tuning avec MLFLOW
+   ```bash
+    python train.py \
+      --remote_server_uri $MLFLOW_TRACKING_URI \
+      --experiment_name "humidity-prediction" \
+      --run_name " nom_du_run " \
+      --cv 2 \
+      --bucket " XXXXXXXXX " \
+      --train_path "projet-mise-en-prod/data/train.csv" \
+      --test_path "projet-mise-en-prod/data/test.csv" \
+      --target_col "relative_humidity"
+   ```
+> 📌 Les logs d'entraînement sont automatiquement enregistrés dans `log/train.log`. Cela permet une gestion optimale de l'API et un suivi de ce qui s'excecute. 
 
-If you are using `conda`, we provide an `environment.yml` file for similar
-usage.
+### L’interface MLflow  📊 
+ > Elle permt de voir : 
+ > * les métriques
+ > * les paramètres
+ > * les artefacts
+ > * les modèles enregistrés
+
+Voici comment se présente notre fine-tuning sur MLflow :
+
+![Image MLflow](chemin/vers/image_mlflow.png)
+
+### Et enfin : les tests 
+
+Les tests unitaires sont dans le dossier `test_unitaire`. Pour les exécuter, on utilise la commande :
+```bash
+python -m pytest test_unitaire/
+```
+
+
+### ANNEXE : Streamlit pour la vizualisation
+
+Bien que le parcours choisi pour ce projet soit celui de **MLOps**, nous avons apprécié découvrir la possibilité de créer des interfaces interactives. C'est pourquoi nous avons dédié un dossier de notre répertoire au développement de cette interface pour mettre en avant notre projet.
+
+On peut retrouver l'application dans le dossier streamlit avec :
+- Une page d'accueil
+- Deux pages supplémentaires
+
+Pour lancer l'application en local, voici la ligne de commande à suivre :
+```bash
+streamlit run streamlit/streamlit_app.py
+```
