@@ -75,7 +75,11 @@ pip install -U -r requirements.txt
       --test_path "projet-mise-en-prod/data/test.csv" \
       --target_col "relative_humidity"
    ```
-> 📌 Les logs d'entraînement sont automatiquement enregistrés dans `log/train.log`. Cela permet une gestion optimale de l'API et un suivi de ce qui s'excecute. 
+> 📌 Les logs d'entraînement sont automatiquement enregistrés dans `log/train.log`. Cela permet une gestion optimale de l'API et un suivi de ce qui s'excecute.
+<p align="center">
+  <img src="img/log_example.png" width="50%">
+</p>
+
 
 ### L’interface MLflow  📊 
  > Elle permt de voir : 
@@ -84,9 +88,9 @@ pip install -U -r requirements.txt
  > * les artefacts
  > * les modèles enregistrés
 
-Voici comment se présente notre fine-tuning sur MLflow :
+> Voici comment se présente notre fine-tuning sur MLflow :
 
-![Image MLflow](chemin/vers/image_mlflow.png)
+> ![Image MLflow](img/image_mlflow.png)
 
 ### Et enfin : les tests 
 
