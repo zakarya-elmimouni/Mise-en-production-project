@@ -51,7 +51,7 @@ Ce projet a pour objectif de prédire l'humidité relative à partir de données
 Etapes pour l'utilisation de notre projet
 #### Clone du dépôt
    ```bash
-   git clone https://github.com/AhmedProj/PrimePredict.git
+   git clone https://github.com/zakarya-elmimouni/Mise-en-production-project.git
    cd Mise-en-production-project
    ```
 
@@ -92,6 +92,21 @@ pip install -U -r requirements.txt
 
 > ![Image MLflow](img/image_mlflow.png)
 
+### Industrialisation du déploiement avec Argo-CD
+
+Nous avons automatisé le déploiement en utilisant une approche GitOps avec [Argo-CD](https://argo-cd.readthedocs.io/), synchronisant notre dépôt de configuration :
+
+<p align="center">
+  <img src="img/argo_example.jpeg" alt="Interface Argo-CD" width="40%">
+</p>
+
+**Dépôt GitOps** :  
+🔗 [github.com/zakarya-elmimouni/application-deployment](https://github.com/zakarya-elmimouni/application-deployment)
+
+**Application déployée** :  
+🌐 [humidity-prediction.lab.sspcloud.fr](https://humidity-prediction.lab.sspcloud.fr/)
+
+
 ### Et enfin : les tests 
 
 Les tests unitaires sont dans le dossier `test_unitaire`. Pour les exécuter, on utilise la commande :
@@ -112,3 +127,8 @@ Pour lancer l'application en local, voici la ligne de commande à suivre :
 ```bash
 streamlit run streamlit/streamlit_app.py
 ```
+Voici quelques visuels de l'interface streamlit (ps : la prediction est disponible via l'API mais pas avec streamlit) : 
+
+<p align="center">
+  <img src="img/streamlit_interface.png" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1)" width="55%">
+</p>
