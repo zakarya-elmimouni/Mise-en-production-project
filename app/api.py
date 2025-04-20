@@ -7,6 +7,8 @@ import pandas as pd
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
+mlflow.set_tracking_uri("https://user-akhairaldin-mlflow.user.lab.sspcloud.fr")
+
 # Preload model -------------------
 MODEL_NAME = "production"
 MODEL_STAGE = "latest"
