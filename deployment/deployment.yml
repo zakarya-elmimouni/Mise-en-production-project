@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
         - name: humidity-container
-          image: ahmedkhairaldin/humidity_prediction
+          image: ahmedkhairaldin/humidity_prediction:main
           ports:
             - containerPort: 8000
           env:
-        - name: MLFLOW_TRACKING_URI
-            value: https://user-akhairaldin-mlflow.user.lab.sspcloud.fr
+            - name: MLFLOW_TRACKING_URI
+              value: https://user-akhairaldin-mlflow.user.lab.sspcloud.fr
