@@ -21,4 +21,14 @@ spec:
             - containerPort: 8000
           env:
             - name: MLFLOW_TRACKING_URI
-              value: https://user-akhairaldin-mlflow.user.lab.sspcloud.fr
+              value: "https://user-akhairaldin-mlflow.user.lab.sspcloud.fr"
+            - name: MLFLOW_TRACKING_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mlflow-secret
+                  key: MLFLOW_TRACKING_USERNAME
+            - name: MLFLOW_TRACKING_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mlflow-secret
+                  key: MLFLOW_TRACKING_PASSWORD
