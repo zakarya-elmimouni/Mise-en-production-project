@@ -1,0 +1,13 @@
+data/
+logs/
+output/
+img/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.ipynb
+*.jpynb
+.DS_Store
+.git/
