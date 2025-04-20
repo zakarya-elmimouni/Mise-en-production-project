@@ -34,14 +34,15 @@ Ce projet a pour objectif de prédire l'humidité relative à partir de données
 - Prétraitement et nettoyage des données météorologiques
 - Entraînement d’un modèle de prédiction de l’humidité relative
 - Évaluation des performances
-- Déploiement du modèle via une API ou une interface web
+- Déploiement du modèle via une API ou une interface web avec une approche MLOps
+
 
 ## 🔧 Stack technique
 
 - Python
 - Pandas, NumPy
-- Scikit-learn 
-- MLOPS
+- Scikit-learn
+- MLFlow
 - Docker 
 
 ## 📁 Structure du projet
@@ -95,10 +96,10 @@ pip install -U -r requirements.txt
 ### Industrialisation du déploiement avec Argo-CD
 
 Nous avons automatisé le déploiement en utilisant une approche GitOps avec [Argo-CD](https://argo-cd.readthedocs.io/), synchronisant notre dépôt de configuration :
-
-<p align="center">
-  <img src="img/argo_example.jpeg" alt="Interface Argo-CD" width="40%">
-</p>
+<div align="center" style="display: flex; align-items: flex-start; justify-content: center; gap: 40px; margin: 20px 0;">
+  <img src="img/argo_example.jpeg" alt="Vue globale ArgoCD" width="35%" style="align-self: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+  <img src="img/argo.png" alt="Détails déploiement" width="45%" style="margin-top: -30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+</div>
 
 **Dépôt GitOps** :  
 🔗 [github.com/zakarya-elmimouni/application-deployment](https://github.com/zakarya-elmimouni/application-deployment)
@@ -115,7 +116,7 @@ python -m pytest test_unitaire/
 ```
 
 
-### ANNEXE : Streamlit pour la vizualisation
+### ANNEXE : Streamlit pour la visualisation
 
 Bien que le parcours choisi pour ce projet soit celui de **MLOps**, nous avons apprécié découvrir la possibilité de créer des interfaces interactives. C'est pourquoi nous avons dédié un dossier de notre répertoire au développement de cette interface pour mettre en avant notre projet.
 
@@ -130,5 +131,5 @@ streamlit run streamlit/streamlit_app.py
 Voici quelques visuels de l'interface streamlit (ps : la prediction est disponible via l'API mais pas avec streamlit) : 
 
 <p align="center">
-  <img src="img/streamlit_interface.png" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1)" width="55%">
+  <img src="img/streamlit_interface.png" style="box-shadow: 0 4px 8px rgba(0,0,0,0.1)" width="65%">
 </p>
