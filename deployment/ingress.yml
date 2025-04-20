@@ -5,8 +5,12 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - humidity_prediction.lab.sspcloud.fr
   rules:
-    - host: api-humidity-test.lab.sspcloud.fr
+    - host: humidity_prediction.lab.sspcloud.fr
       http:
         paths:
           - path: /
