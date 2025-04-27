@@ -71,7 +71,7 @@ pip install -U -r requirements.txt
       --experiment_name "humidity-prediction" \
       --run_name " nom_du_run " \
       --cv 2 \
-      --bucket " arazig " \
+      --bucket "arazig" \
       --train_path "projet-mise-en-prod/data/train.csv" \
       --test_path "projet-mise-en-prod/data/test.csv" \
       --target_col "relative_humidity"
